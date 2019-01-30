@@ -6,7 +6,7 @@ import Picker from '../components/Picker'
 import Posts from '../components/Posts'
 
 class App extends Component {
-  static propTypes = {
+  static propTypes ={
     selectedSubreddit: PropTypes.string.isRequired,
     posts: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
@@ -16,13 +16,13 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch, selectedSubreddit } = this.props
-    dispatch(fetchPostsIfNeeded(selectedSubreddit))
+    dispatch(fetchPostsIfNeeded(selectedSubreddit));
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps)  {
     if (prevProps.selectedSubreddit !== this.props.selectedSubreddit) {
-      const { dispatch, selectedSubreddit } = this.props
-      dispatch(fetchPostsIfNeeded(selectedSubreddit))
+      const {dispatch, selectedSubreddit }=this.props
+      dispatch ( fetchPostsIfNeeded(selectedSubreddit) )
     }
   }
 
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   handleRefreshClick = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     const { dispatch, selectedSubreddit } = this.props
     dispatch(invalidateSubreddit(selectedSubreddit))
