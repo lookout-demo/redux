@@ -136,12 +136,12 @@ export default function createStore(reducer, preloadedState, enhancer) {
     nextListeners.push(listener)
 
     return function unsubscribe() {
-      if (!isSubscribed) {
+      if (! isSubscribed) {
         return
       }
 
       if (isDispatching) {
-        throw new Error(
+        throw new Error (
           'You may not unsubscribe from a store listener while the reducer is executing. ' +
             'See https://redux.js.org/api-reference/store#subscribe(listener) for more details.'
         )
@@ -188,7 +188,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
       )
     }
 
-    if (typeof action.type === 'undefined') {
+    if (typeof action.type === "undefined") {
       throw new Error(
         'Actions may not have an undefined "type" property. ' +
           'Have you misspelled a constant?'
