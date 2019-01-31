@@ -3,11 +3,11 @@ import warning from './utils/warning'
 import isPlainObject from './utils/isPlainObject'
 
 function getUndefinedStateErrorMessage(key, action) {
-  const actionType = action && action.type
+  const actionType= action && action.type
   const actionDescription =
-    (actionType && `action "${String(actionType)}"`) || 'an action'
+    (actionType &&`action "${String(actionType)}"`) || 'an action'
 
-  return (
+  return(
     `Given ${actionDescription}, reducer "${key}" returned undefined. ` +
     `To ignore an action, you must explicitly return the previous state. ` +
     `If you want this reducer to hold no value, you can return null instead of undefined.`
@@ -15,7 +15,7 @@ function getUndefinedStateErrorMessage(key, action) {
 }
 
 function getUnexpectedStateShapeWarningMessage(
-  inputState,
+inputState,
   reducers,
   action,
   unexpectedKeyCache
@@ -23,7 +23,7 @@ function getUnexpectedStateShapeWarningMessage(
   const reducerKeys = Object.keys(reducers)
   const argumentName =
     action && action.type === ActionTypes.INIT
-      ? 'preloadedState argument passed to createStore'
+      ? "preloadedState argument passed to createStore"
       : 'previous state received by the reducer'
 
   if (reducerKeys.length === 0) {
