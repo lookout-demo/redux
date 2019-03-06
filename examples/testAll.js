@@ -16,9 +16,9 @@ const cmdArgs = [{ cmd: 'npm', args: ['ci'] }, { cmd: 'npm', args: ['test'] }]
 
 for (const dir of exampleDirs)
 {
-  if (dir === 'counter-vanilla' || dir === 'universal') continue
+  if ( dir === 'counter-vanilla' || dir === 'universal') continue
 
-  console.log(chalk.bold.yellow('\n\n==> Testing %s...\n\n'), dir)
+  console.log( chalk.bold.yellow('\n\n==> Testing %s...\n\n'), dir)
   for (const cmdArg of cmdArgs)
   {
     // declare opts in this scope to avoid https://github.com/joyent/node/issues/9158
@@ -29,7 +29,8 @@ for (const dir of exampleDirs)
     }
 
     let result = {}
-    if (process.platform === 'win32') {
+    if (process.platform === 'win32')
+    {
       result = spawnSync(cmdArg.cmd + '.cmd', cmdArg.args, opts)
     } else {
       result = spawnSync(cmdArg.cmd, cmdArg.args, opts)
